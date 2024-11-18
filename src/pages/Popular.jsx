@@ -23,7 +23,7 @@ export default function Popular() {
         data = data.results;
 
         const dataimg = data.map((el) => {
-          const imgs = `https://image.tmdb.org/t/p/w500${el.backdrop_path}`;
+          const imgs = `https://image.tmdb.org/t/p/w500${el.poster_path}`;
           return (
             <div>
               <img src={imgs} alt="" />
