@@ -3,8 +3,13 @@ import { Link } from "react-router-dom";
 import NowPlaying from "./NowPlaying";
 import MovieList from "./MovieList";
 import axios from "axios";
+import { login, logout } from "../store/slices/authSlice";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Home() {
+  const { isLoggedIn } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
   const movielist = [
     { path: "/now_playing", name: "nowplaying" },
     { path: "/popular", name: "Popular" },
@@ -17,19 +22,39 @@ export default function Home() {
     return <MovieList path={path}>{name}</MovieList>;
   });
 
+  function handleSubmit(e) {
+    e.preventDefault();
+  }
   return (
     <>
-      <form action="">
+      <form onSubmit={handleSubmit} action="">
         <label htmlFor="">아이디: </label>
         <input type="text" />
 
         <label htmlFor="">비밀번호: </label>
         <input type="text" />
 
-        <input type="submit" value="로그인" />
+        {isLoggedIn ? (
+          <button
+            onClick={() => {
+              dispatch(logout());
+              // 홈으로 보내
+            }}
+          >
+            로그아웃
+          </button>
+        ) : (
+          <button
+            onClick={() => {
+              dispatch(login());
+            }}
+          >
+            로그인
+          </button>
+        )}
       </form>
 
-      <div>{moviemap}</div>
+      {isLoggedIn && <div>{moviemap}</div>}
     </>
   );
 }
