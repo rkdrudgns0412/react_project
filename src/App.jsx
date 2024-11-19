@@ -7,7 +7,6 @@ import store from "./store/store";
 
 export default function App() {
   const value = import.meta.env.VITE_SECRET_VALUE;
-  console.log(value);
 
   return (
     <>

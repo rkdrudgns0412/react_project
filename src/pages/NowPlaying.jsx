@@ -1,31 +1,34 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import movieListApi from "../api/movieListApi";
 
 export default function NowPlaying() {
-  const baseURL = "https://api.themoviedb.org/3/movie";
-  const path = "/now_playing";
-  const params = new URLSearchParams({
-    api_key: "56daa931cc7f953de7359b43531fa672",
-    language: "ko",
-  });
+  // const baseURL = "https://api.themoviedb.org/3/movie";
+  // const path = "/now_playing";
+  // const params = new URLSearchParams({
+  //   api_key: "56daa931cc7f953de7359b43531fa672",
+  //   language: "ko",
+  // });
 
-  const URL = `${baseURL}${path}?${params}`;
+  // const URL = `${baseURL}${path}?${params}`;
 
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     async function fetchPost() {
       try {
-        const reponse = await axios.get(URL);
+        // const reponse = await axios.get(URL);
 
-        let data = reponse.data;
+        // let data = reponse.data;
+
+        let data = await movieListApi.getPost();
 
         data = data.results;
 
         const dataimg = data.map((el) => {
           const imgs = `https://image.tmdb.org/t/p/w500${el.poster_path}`;
           return (
-            <div>
+            <div key={el.id}>
               <img src={imgs} alt="" />
               <div>{el.title}</div>
             </div>
@@ -37,8 +40,6 @@ export default function NowPlaying() {
     }
     fetchPost();
   }, []);
-
-  console.log(posts);
 
   return <div>{posts}</div>;
 }
