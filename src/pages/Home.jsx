@@ -27,7 +27,7 @@ export default function Home() {
   }
   return (
     <>
-      <form onSubmit={handleSubmit} action="">
+      <form className="formflex" onSubmit={handleSubmit} action="">
         <label htmlFor="">아이디: </label>
         <input type="text" />
 

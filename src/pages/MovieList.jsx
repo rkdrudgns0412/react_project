@@ -20,7 +20,7 @@ export default function MovieList({ path, children }) {
                 src={imgs}
                 alt=""
               />
-              <div>{el.title}</div>
+              <div style={{fontWeight: "bolder", color: "red"}}>{el.title}</div>
             </div>
           </Link>
         );
@@ -33,9 +33,18 @@ export default function MovieList({ path, children }) {
 
   return (
     <>
-      <h3>{children}</h3>
+      <h3>
+        {children}
+        <button style={{ margin: "20px", width: "60px", height: "30px" }}>
+          <Link
+            style={{ fontWeight: "bolder", color: "green" }}
+            to={`/${children}`}
+          >
+            더보기
+          </Link>
+        </button>
+      </h3>
       <div style={{ display: "flex" }}>{posts}</div>
-      <Link to={`/${children}`}>더보기</Link>
     </>
   );
 }
