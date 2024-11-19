@@ -4,6 +4,8 @@ import api from "./axios";
 const movieListApi = {
   // 1. 리스트 get
   getPostId: async (path) => {
+    console.log(path);
+
     const response = await api.get(path);
     return response.data;
   },

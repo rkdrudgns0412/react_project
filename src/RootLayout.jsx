@@ -1,18 +1,12 @@
 import React from "react";
 import { Outlet } from "react-router-dom";
-import { Link } from "react-router-dom";
+
+import Header from "./header/Header";
 
 export default function RootLayout() {
   return (
     <>
-      <header>
-        <h1>MOVIE</h1>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-        </ul>
-      </header>
+      <Header></Header>
       <Outlet></Outlet>
     </>
   );

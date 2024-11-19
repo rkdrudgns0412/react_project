@@ -8,7 +8,7 @@ export default function Home() {
   const movielist = [
     { path: "/now_playing", name: "nowplaying" },
     { path: "/popular", name: "Popular" },
-    { path: "/top_rated", name: "Top Rated" },
+    { path: "/top_rated", name: "TopRated" },
   ];
 
   const moviemap = movielist.map((el) => {

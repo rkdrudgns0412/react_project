@@ -4,6 +4,7 @@ import RootLayout from "../RootLayout";
 import NowPlaying from "../pages/NowPlaying";
 import Popular from "../pages/Popular";
 import TopRated from "../pages/TopRated";
+import MovieDetail from "../pages/MovieDetail";
 
 const router = createBrowserRouter([
   {
@@ -25,6 +26,10 @@ const router = createBrowserRouter([
       {
         path: "/toprated",
         element: <TopRated />,
+      },
+      {
+        path: "/:detailId",
+        element: <MovieDetail />,
       },
     ],
   },

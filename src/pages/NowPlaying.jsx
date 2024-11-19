@@ -8,7 +8,9 @@ export default function NowPlaying() {
   useEffect(() => {
     async function fetchPost() {
       try {
-        let data = await movieListApi.getPost();
+        const path = "/now_playing";
+
+        let data = await movieListApi.getPostId(path);
 
         data = data.results;
 
