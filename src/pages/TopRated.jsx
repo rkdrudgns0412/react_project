@@ -40,5 +40,5 @@ export default function TopRated() {
 
   console.log(posts);
 
-  return <div>{posts}</div>;
+  return (<div>{posts}</div>);
 }

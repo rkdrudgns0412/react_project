@@ -3,11 +3,14 @@ import api from "./axios";
 
 const movieListApi = {
   // 1. 리스트 get
-  getPost: async () => {
-    const nowpath = "/now_playing";
-    const response = await api.get(nowpath);
+  getPostId: async (path) => {
+    const response = await api.get(path);
     return response.data;
   },
+  // getPost: async () => {
+  //   const response = await api.get();
+  //   return response.data;
+  // },
   // // 2. 개별 get
   // getPostById: async (postId) => {
   //   const response = await api.get(`${postId}`);

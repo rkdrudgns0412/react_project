@@ -6,7 +6,6 @@ import { Provider } from "react-redux";
 import store from "./store/store";
 
 export default function App() {
-  const value = import.meta.env.VITE_SECRET_VALUE;
 
   return (
     <>
