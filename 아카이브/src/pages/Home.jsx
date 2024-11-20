@@ -48,7 +48,6 @@ export default function Home() {
           <button
             onClick={() => {
               dispatch(login());
-              // movie
             }}
           >
             로그인

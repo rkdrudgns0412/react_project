@@ -11,8 +11,7 @@ const mySlice = createSlice({
       state.push(action.payload);
     },
     deletePost: (state, action) => {
-      return action.payload
-      // return state.filter()
+      state = action.payload;
     },
   },
 });

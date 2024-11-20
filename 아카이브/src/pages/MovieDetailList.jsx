@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import movieListApi from "../api/movieListApi";
 
 export default function MovieDetailList({ id }) {
+  console.log(id);
 
   const [posts, setPosts] = useState([]);
   useEffect(() => {
@@ -14,7 +15,7 @@ export default function MovieDetailList({ id }) {
     fetchPost();
   }, []);
 
-
+  console.log(posts);
 
   const imgs = `https://image.tmdb.org/t/p/w500${posts.poster_path}`;
 

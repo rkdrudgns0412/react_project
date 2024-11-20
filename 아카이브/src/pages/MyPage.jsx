@@ -7,9 +7,9 @@ export default function MyPage() {
 
   console.log(id);
 
-  const idmap = id.map((el) => {
+  const idlists = id.map((el) => {
     return <MovieDetailList id={el.id}></MovieDetailList>;
   });
 
-  return <div>{idmap}</div>;
+  return <div>{idlists}</div>;
 }

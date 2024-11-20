@@ -19,7 +19,6 @@ const router = createBrowserRouter([
       {
         path: "/nowplaying",
         element: <NowPlaying />,
-        // element:<componet path='asfd'></componet>,
       },
       {
         path: "/popular",
