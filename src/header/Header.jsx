@@ -9,6 +9,9 @@ export default function Header() {
         <li>
           <Link to="/">Home</Link>
         </li>
+        <li>
+          <Link to="/mypage">mypage</Link>
+        </li>
       </ul>
     </header>
   );

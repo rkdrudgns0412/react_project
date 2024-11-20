@@ -8,32 +8,30 @@ export default function NowPlaying() {
 
   useEffect(() => {
     async function fetchPost() {
-      try {
-        const path = "/now_playing";
+      const path = "/now_playing";
 
-        let data = await movieListApi.getPostId(path);
+      let data = await movieListApi.getPostId(path);
 
-        data = data.results;
+      data = data.results;
 
-        const dataimg = data.map((el) => {
-          const imgs = `https://image.tmdb.org/t/p/w500${el.poster_path}`;
-          return (
-            <Link to={`/${el.id}`}>
-              <div key={el.id}>
-                <img src={imgs} alt="" />
-                <div>{el.title}</div>
-              </div>
-            </Link>
-          );
-        });
-
-        console.log(dataimg);
-
-        setPosts(dataimg);
-      } catch {}
+      setPosts(data);
     }
     fetchPost();
   }, []);
 
-  return <div>{posts}</div>;
+  return (
+    <div>
+      {posts.map((el) => {
+        const imgs = `https://image.tmdb.org/t/p/w500${el.poster_path}`;
+        return (
+          <Link to={`/${el.id}`}>
+            <div key={el.id}>
+              <img src={imgs} alt="" />
+              <div>{el.title}</div>
+            </div>
+          </Link>
+        );
+      })}
+    </div>
+  );
 }

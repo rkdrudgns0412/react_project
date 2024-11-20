@@ -14,21 +14,23 @@ export default function TopRated() {
 
         data = data.results;
 
-        const dataimg = data.map((el) => {
-          const imgs = `https://image.tmdb.org/t/p/w500${el.poster_path}`;
-          return (
-            <div key={el.id}>
-              <img src={imgs} alt="" />
-              <div>{el.title}</div>
-            </div>
-          );
-        });
-
-        setPosts(dataimg);
+        setPosts(data);
       } catch {}
     }
     fetchPost();
   }, []);
 
-  return <div>{posts}</div>;
+  return (
+    <div>
+      {posts.map((el) => {
+        const imgs = `https://image.tmdb.org/t/p/w500${el.poster_path}`;
+        return (
+          <div key={el.id}>
+            <img src={imgs} alt="" />
+            <div>{el.title}</div>
+          </div>
+        );
+      })}
+    </div>
+  );
 }

@@ -10,28 +10,13 @@ export default function MovieList({ path, children }) {
 
       data = data.results;
 
-      const dataimg = data.map((el) => {
-        const imgs = `https://image.tmdb.org/t/p/w500${el.poster_path}`;
-        return (
-          <Link style={{ margin: "10px" }} to={`/${el.id}`}>
-            <div key={el.id}>
-              <img
-                style={{ width: "300px", height: "400px" }}
-                src={imgs}
-                alt=""
-              />
-              <div style={{ fontWeight: "bolder", color: "red" }}>
-                {el.title}
-              </div>
-            </div>
-          </Link>
-        )
-      });
+      console.log(data);
 
-      setPosts(dataimg.slice(0, 5));
+      setPosts(data.slice(0, 5));
     }
     fetchPost();
   }, []);
+
 
   return (
     <>
@@ -46,7 +31,25 @@ export default function MovieList({ path, children }) {
           </Link>
         </button>
       </h3>
-      <div style={{ display: "flex" }}>{posts}</div>
+      <div style={{ display: "flex" }}>
+        {posts.map((el) => {
+          const imgs = `https://image.tmdb.org/t/p/w500${el.poster_path}`;
+          return (
+            <Link style={{ margin: "10px" }} to={`/${el.id}`}>
+              <div key={el.id}>
+                <img
+                  style={{ width: "300px", height: "400px" }}
+                  src={imgs}
+                  alt=""
+                />
+                <div style={{ fontWeight: "bolder", color: "red" }}>
+                  {el.title}
+                </div>
+              </div>
+            </Link>
+          );
+        })}
+      </div>
     </>
   );
 }
