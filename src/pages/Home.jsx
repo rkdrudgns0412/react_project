@@ -25,6 +25,7 @@ export default function Home() {
   function handleSubmit(e) {
     e.preventDefault();
   }
+
   return (
     <>
       <form className="formflex" onSubmit={handleSubmit} action="">

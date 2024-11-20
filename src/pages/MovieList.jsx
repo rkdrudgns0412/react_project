@@ -13,17 +13,19 @@ export default function MovieList({ path, children }) {
       const dataimg = data.map((el) => {
         const imgs = `https://image.tmdb.org/t/p/w500${el.poster_path}`;
         return (
-          <Link to={`/${el.id}`}>
+          <Link style={{ margin: "10px" }} to={`/${el.id}`}>
             <div key={el.id}>
               <img
                 style={{ width: "300px", height: "400px" }}
                 src={imgs}
                 alt=""
               />
-              <div style={{fontWeight: "bolder", color: "red"}}>{el.title}</div>
+              <div style={{ fontWeight: "bolder", color: "red" }}>
+                {el.title}
+              </div>
             </div>
           </Link>
-        );
+        )
       });
 
       setPosts(dataimg.slice(0, 5));
