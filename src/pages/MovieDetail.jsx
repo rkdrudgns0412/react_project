@@ -36,6 +36,7 @@ export default function MovieDetail() {
   const imgs = `https://image.tmdb.org/t/p/w500${post?.poster_path}`;
 
   function handlebutton() {
+ 
     console.log(idlist);
 
     if (!idlist?.find((el) => parseInt(el.id) === parseInt(detailId))) {

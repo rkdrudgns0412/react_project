@@ -10,38 +10,25 @@ export default function MovieDetailList({ id }) {
     async function fetchPost() {
       let data = await movieListApi.getPostId(id);
 
-      data = data.results;
-
-      console.log(data);
-
       setPosts(data);
     }
     fetchPost();
   }, []);
 
-  log
+  console.log(posts);
 
-  return <></>;
+  const imgs = `https://image.tmdb.org/t/p/w500${posts.poster_path}`;
 
-  // return
-  //   <div style={{ display: "flex" }}>
-  //   {posts.map((el) => {
-  //     const imgs = `https://image.tmdb.org/t/p/w500${el.poster_path}`;
-  //     return (
-  //       <Link style={{ margin: "10px" }} to={`/${el.id}`}>
-  //         <div key={el.id}>
-  //           <img
-  //             style={{ width: "300px", height: "400px" }}
-  //             src={imgs}
-  //             alt=""
-  //           />
-  //           <div style={{ fontWeight: "bolder", color: "red" }}>
-  //             {el.title}
-  //           </div>
-  //         </div>
-  //       </Link>
-  //     );
-  //   })}
-  // </div>
-  // );
+  return (
+    <div style={{ display: "flex" }}>
+      <Link style={{ margin: "10px" }} to={`/${posts.id}`}>
+        <div key={posts.id}>
+          <img style={{ width: "300px", height: "400px" }} src={imgs} alt="" />
+          <div style={{ fontWeight: "bolder", color: "red" }}>
+            {posts.title}
+          </div>
+        </div>
+      </Link>
+    </div>
+  );
 }

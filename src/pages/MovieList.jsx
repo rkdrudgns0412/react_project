@@ -10,7 +10,6 @@ export default function MovieList({ path, children }) {
 
       data = data.results;
 
-      console.log(data);
 
       setPosts(data.slice(0, 5));
     }
